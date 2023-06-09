@@ -25,8 +25,6 @@ export class MainComponent implements OnInit {
 
   sendDataToValidator() {
     if (!this.passwordChecker.get('password')?.invalid) {
-      console.log('invalid');
-
       this.validator.updateEnteredData(this.passwordChecker.value.password);
       this.renderStrengthLevel();
     } else {
