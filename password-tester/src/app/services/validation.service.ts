@@ -19,7 +19,7 @@ export class ValidationService {
   updateEnteredData(data: string) {
     this.clearValidation();
 
-    //contains min 8 chars
+    //contains less than 8 chars
     if (data.length < 8) {
       this.minimumValid = false;
     }
@@ -29,7 +29,6 @@ export class ValidationService {
       /^\d*$/.test(data) ||
       /^\W*$/.test(data)
     ) {
-      console.log(data + 'weak');
       this.minimumValid = true;
       this.weak = true;
       this.medium = false;
@@ -48,7 +47,6 @@ export class ValidationService {
     }
     //contains letters, digits and special characters
     else if (/^[A-Za-z0-9`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data)) {
-      console.log(data + 'strong');
       this.minimumValid = true;
       this.strong = true;
       this.weak = true;

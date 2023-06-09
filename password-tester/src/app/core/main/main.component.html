@@ -1,12 +1,14 @@
-<mat-form-field [formGroup]="passwordChecker">
-  <h3>Please, enter the password</h3>
+<h3>Please, enter the password</h3>
+<field
+  [formGroup]="passwordChecker"
+  class="mat-form"
+>
   <input
-    matInput
     (ngModelChange)="sendDataToValidator()"
     type="password"
     formControlName="password"
   />
-</mat-form-field>
+</field>
 <div class="warning">
   {{ this.result }}
 </div>
