@@ -37,7 +37,7 @@ export class MainComponent implements OnInit {
       this.weak = 'red';
       this.medium = 'red';
       this.strong = 'red';
-      this.result = 'Min 8 characters';
+      this.result = 'Min 8 characters without spaces';
     } else if (
       this.validator.minimumValid &&
       this.validator.weak &&
