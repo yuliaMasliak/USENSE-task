@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  left: 0;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  bottom: 0px;
+  text-align: center;
+  margin: 0px auto;
+  color: rgb(102, 92, 92);
+}
+a {
+  text-decoration: none;
+  color: rgb(50, 89, 197);
+}
+.footer-info {
+  margin: 0px auto;
+  font-size: 16px;
+  font-weight: 200;
+}

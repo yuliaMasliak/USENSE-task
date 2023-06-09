@@ -1,0 +1,45 @@
+:host {
+  text-align: center;
+}
+
+input {
+  width: 250px;
+}
+.strength-level {
+  text-align: center;
+  margin: 0px auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+}
+.strength-level_item {
+  margin: 0px auto;
+  width: 10rem;
+  height: 2rem;
+  border: 2px solid rgb(133, 119, 119);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+}
+.low-indicator {
+  border: 2px solid rgb(252, 4, 4);
+  box-shadow: rgba(156, 56, 56, 0.35) 0px 5px 15px;
+  color: rgb(146, 17, 17);
+}
+.med-indicator {
+  border: 2px solid rgb(243, 229, 34);
+  box-shadow: rgba(233, 230, 37, 0.35) 0px 5px 15px;
+  color: rgb(115, 126, 70);
+}
+.strong-indicator {
+  border: 2px solid rgb(23, 235, 51);
+  box-shadow: rgba(76, 165, 73, 0.35) 0px 5px 15px;
+  color: rgb(45, 99, 52);
+}
+.warning {
+  color: rgb(231, 53, 53);
+}

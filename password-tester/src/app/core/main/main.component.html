@@ -1,0 +1,48 @@
+<form [formGroup]="passwordChecker">
+  <h3>Please, enter the password</h3>
+  <input
+    (ngModelChange)="sendDataToValidator()"
+    type="password"
+    formControlName="password"
+  />
+</form>
+<div
+  class="warning"
+  *ngIf="
+    this.passwordChecker.get('password')?.invalid &&
+    this.passwordChecker.get('password')?.touched
+  "
+>
+  Password must include minimum 8 characters
+</div>
+
+<div class="strength-level">
+  <div
+    class="strength-level_item easy"
+    [ngStyle]="{ backgroundColor: this.weak == true ? 'red' : 'transparent' }"
+    [ngStyle]="{
+      backgroundColor: this.medium == true ? 'orange' : 'transparent'
+    }"
+    [ngStyle]="{
+      backgroundColor: this.strong == true ? 'green' : 'transparent'
+    }"
+    >Easy</div
+  >
+  <div
+    class="strength-level_item medium"
+    [ngStyle]="{
+      backgroundColor: this.medium == true ? 'orange' : 'transparent'
+    }"
+    [ngStyle]="{
+      backgroundColor: this.strong == true ? 'green' : 'transparent'
+    }"
+    >Medium</div
+  >
+  <div
+    class="strength-level_item strong"
+    [ngStyle]="{
+      backgroundColor: this.strong == true ? 'green' : 'transparent'
+    }"
+    >Strong</div
+  ></div
+>
