@@ -28,3 +28,9 @@ h1 {
 .logo {
   width: 120px;
 }
+
+@media (max-width: 800px) {
+  .logo {
+    width: 0px;
+  }
+}

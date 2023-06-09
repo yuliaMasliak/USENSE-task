@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
   public medium: string = '';
   public strong: string = '';
   public minCharsValid: boolean = true;
+  public result: string = '';
 
   constructor(private validator: ValidationService) {}
 
@@ -36,6 +37,7 @@ export class MainComponent implements OnInit {
       this.weak = 'red';
       this.medium = 'red';
       this.strong = 'red';
+      this.result = 'Min 8 characters';
     } else if (
       this.validator.minimumValid &&
       this.validator.weak &&
@@ -45,6 +47,7 @@ export class MainComponent implements OnInit {
       this.weak = 'red';
       this.medium = 'transparent';
       this.strong = 'transparent';
+      this.result = 'Weak';
     } else if (
       this.validator.minimumValid &&
       this.validator.weak &&
@@ -54,6 +57,7 @@ export class MainComponent implements OnInit {
       this.weak = 'yellow';
       this.medium = 'yellow';
       this.strong = 'transparent';
+      this.result = 'Medium';
     } else if (
       this.validator.minimumValid &&
       this.validator.weak &&
@@ -63,6 +67,7 @@ export class MainComponent implements OnInit {
       this.weak = 'green';
       this.medium = 'green';
       this.strong = 'green';
+      this.result = 'Strong';
     }
   }
 }

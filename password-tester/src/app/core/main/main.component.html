@@ -7,14 +7,8 @@
     formControlName="password"
   />
 </mat-form-field>
-<div
-  class="warning"
-  *ngIf="
-    this.passwordChecker.get('password')?.invalid &&
-    this.passwordChecker.get('password')?.touched
-  "
->
-  Password must include minimum 8 characters
+<div class="warning">
+  {{ this.result }}
 </div>
 
 <div class="strength-level">
@@ -23,20 +17,53 @@
     [ngStyle]="{
       backgroundColor: this.weak
     }"
-    >Easy</div
-  >
+  ></div>
+  <div
+    class="strength-level_item easy"
+    [ngStyle]="{
+      backgroundColor: this.weak
+    }"
+  ></div>
+  <div
+    class="strength-level_item easy"
+    [ngStyle]="{
+      backgroundColor: this.weak
+    }"
+  ></div>
   <div
     class="strength-level_item medium"
     [ngStyle]="{
       backgroundColor: this.medium
     }"
-    >Medium</div
-  >
+  ></div>
+  <div
+    class="strength-level_item medium"
+    [ngStyle]="{
+      backgroundColor: this.medium
+    }"
+  ></div>
+  <div
+    class="strength-level_item medium"
+    [ngStyle]="{
+      backgroundColor: this.medium
+    }"
+  ></div>
   <div
     class="strength-level_item strong"
     [ngStyle]="{
       backgroundColor: this.strong
     }"
-    >Strong</div
+  ></div>
+  <div
+    class="strength-level_item strong"
+    [ngStyle]="{
+      backgroundColor: this.strong
+    }"
+  ></div>
+  <div
+    class="strength-level_item strong"
+    [ngStyle]="{
+      backgroundColor: this.strong
+    }"
   ></div
->
+></div>
