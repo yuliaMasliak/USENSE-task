@@ -1,11 +1,12 @@
-<form [formGroup]="passwordChecker">
+<mat-form-field [formGroup]="passwordChecker">
   <h3>Please, enter the password</h3>
   <input
+    matInput
     (ngModelChange)="sendDataToValidator()"
     type="password"
     formControlName="password"
   />
-</form>
+</mat-form-field>
 <div
   class="warning"
   *ngIf="
@@ -20,37 +21,21 @@
   <div
     class="strength-level_item easy"
     [ngStyle]="{
-      backgroundColor: this.minCharsValid == false ? 'red' : 'transparent'
-    }"
-    [ngStyle]="{ backgroundColor: this.weak == true ? 'red' : 'transparent' }"
-    [ngStyle]="{
-      backgroundColor: this.medium == true ? 'orange' : 'transparent'
-    }"
-    [ngStyle]="{
-      backgroundColor: this.strong == true ? 'green' : 'transparent'
+      backgroundColor: this.weak
     }"
     >Easy</div
   >
   <div
     class="strength-level_item medium"
     [ngStyle]="{
-      backgroundColor: this.minCharsValid == false ? 'red' : 'transparent'
-    }"
-    [ngStyle]="{
-      backgroundColor: this.medium == true ? 'orange' : 'transparent'
-    }"
-    [ngStyle]="{
-      backgroundColor: this.strong == true ? 'green' : 'transparent'
+      backgroundColor: this.medium
     }"
     >Medium</div
   >
   <div
     class="strength-level_item strong"
     [ngStyle]="{
-      backgroundColor: this.minCharsValid == false ? 'red' : 'transparent'
-    }"
-    [ngStyle]="{
-      backgroundColor: this.strong == true ? 'green' : 'transparent'
+      backgroundColor: this.strong
     }"
     >Strong</div
   ></div

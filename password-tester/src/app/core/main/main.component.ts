@@ -9,10 +9,11 @@ import { ValidationService } from 'src/app/services/validation.service';
 })
 export class MainComponent implements OnInit {
   public passwordChecker!: FormGroup;
-  public weak: boolean = false;
-  public medium: boolean = false;
-  public strong: boolean = false;
+  public weak: string = '';
+  public medium: string = '';
+  public strong: string = '';
   public minCharsValid: boolean = true;
+
   constructor(private validator: ValidationService) {}
 
   ngOnInit(): void {
@@ -31,8 +32,37 @@ export class MainComponent implements OnInit {
 
   renderStrengthLevel() {
     this.minCharsValid = this.validator.minimumValid;
-    this.weak = this.validator.weak;
-    this.medium = this.validator.medium;
-    this.strong = this.validator.strong;
+    if (!this.validator.minimumValid) {
+      this.weak = 'red';
+      this.medium = 'red';
+      this.strong = 'red';
+    } else if (
+      this.validator.minimumValid &&
+      this.validator.weak &&
+      !this.validator.medium &&
+      !this.validator.strong
+    ) {
+      this.weak = 'red';
+      this.medium = 'transparent';
+      this.strong = 'transparent';
+    } else if (
+      this.validator.minimumValid &&
+      this.validator.weak &&
+      this.validator.medium &&
+      !this.validator.strong
+    ) {
+      this.weak = 'yellow';
+      this.medium = 'yellow';
+      this.strong = 'transparent';
+    } else if (
+      this.validator.minimumValid &&
+      this.validator.weak &&
+      this.validator.medium &&
+      this.validator.strong
+    ) {
+      this.weak = 'green';
+      this.medium = 'green';
+      this.strong = 'green';
+    }
   }
 }
