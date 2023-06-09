@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ValidationService {
+  public minimumValid: boolean = false;
   public weak: boolean = false;
   public medium: boolean = false;
   public strong: boolean = false;
-  constructor() {}
 
   clearValidation() {
     this.weak = false;
@@ -17,9 +17,16 @@ export class ValidationService {
 
   updateEnteredData(data: string) {
     this.clearValidation();
-    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    //contains letters or digits orsymbols
-    if (/^[a-zA-Z]*$/.test(data) || /^\d*$/.test(data) || /^\W*$/.test(data)) {
+
+    //contains min 8 chars
+    if (data.length <= 8) {
+      this.minimumValid = false;
+    } else if (
+      /^[a-zA-Z]*$/.test(data) ||
+      /^\d*$/.test(data) ||
+      /^\W*$/.test(data)
+    ) {
+      this.minimumValid = true;
       this.weak = true;
     }
     //contains  letters-symbols/letters-digits/digits-symbols
@@ -28,10 +35,12 @@ export class ValidationService {
       /^[A-Za-z`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data) ||
       /^[0-9`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data)
     ) {
+      this.minimumValid = true;
       this.medium = true;
     }
     //contains letters, digits and special characters
     else if (/^[A-Za-z0-9`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data)) {
+      this.minimumValid = true;
       this.strong = true;
     }
   }

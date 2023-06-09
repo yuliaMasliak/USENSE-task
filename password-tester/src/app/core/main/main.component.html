@@ -19,6 +19,9 @@
 <div class="strength-level">
   <div
     class="strength-level_item easy"
+    [ngStyle]="{
+      backgroundColor: this.minCharsValid == false ? 'red' : 'transparent'
+    }"
     [ngStyle]="{ backgroundColor: this.weak == true ? 'red' : 'transparent' }"
     [ngStyle]="{
       backgroundColor: this.medium == true ? 'orange' : 'transparent'
@@ -31,6 +34,9 @@
   <div
     class="strength-level_item medium"
     [ngStyle]="{
+      backgroundColor: this.minCharsValid == false ? 'red' : 'transparent'
+    }"
+    [ngStyle]="{
       backgroundColor: this.medium == true ? 'orange' : 'transparent'
     }"
     [ngStyle]="{
@@ -40,6 +46,9 @@
   >
   <div
     class="strength-level_item strong"
+    [ngStyle]="{
+      backgroundColor: this.minCharsValid == false ? 'red' : 'transparent'
+    }"
     [ngStyle]="{
       backgroundColor: this.strong == true ? 'green' : 'transparent'
     }"

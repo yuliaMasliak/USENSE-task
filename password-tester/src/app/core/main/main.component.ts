@@ -12,6 +12,7 @@ export class MainComponent implements OnInit {
   public weak: boolean = false;
   public medium: boolean = false;
   public strong: boolean = false;
+  public minCharsValid: boolean = true;
   constructor(private validator: ValidationService) {}
 
   ngOnInit(): void {
@@ -24,15 +25,12 @@ export class MainComponent implements OnInit {
   }
 
   sendDataToValidator() {
-    if (!this.passwordChecker.get('password')?.invalid) {
-      this.validator.updateEnteredData(this.passwordChecker.value.password);
-      this.renderStrengthLevel();
-    } else {
-      this.validator.clearValidation();
-    }
+    this.validator.updateEnteredData(this.passwordChecker.value.password);
+    this.renderStrengthLevel();
   }
 
   renderStrengthLevel() {
+    this.minCharsValid = this.validator.minimumValid;
     this.weak = this.validator.weak;
     this.medium = this.validator.medium;
     this.strong = this.validator.strong;
