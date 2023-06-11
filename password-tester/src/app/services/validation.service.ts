@@ -25,7 +25,7 @@ export class ValidationService {
     }
     //contains only letters/digits/symbols
     else if (
-      /^[a-zA-Z]*$/.test(data) ||
+      /^[a-zA-Zа-яА-Я]*$/.test(data) ||
       /^\d*$/.test(data) ||
       /^\W*$/.test(data)
     ) {
