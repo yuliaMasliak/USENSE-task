@@ -21,3 +21,8 @@
   flex-direction: column;
   bottom: 0px;
 }
+@media (max-width: 640px) {
+  .app {
+    width: 90%;
+  }
+}
