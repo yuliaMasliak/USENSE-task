@@ -25,7 +25,7 @@ export class ValidationService {
     }
     //contains only letters/digits/symbols
     else if (
-      /^[a-zA-Zа-яА-Я]*$/.test(data) ||
+      /^[a-zA-Zа-яА-ЯёЁ]*$/.test(data) ||
       /^\d*$/.test(data) ||
       /^\W*$/.test(data)
     ) {
@@ -36,8 +36,8 @@ export class ValidationService {
     }
     //contains  letters-symbols/letters-digits/digits-symbols
     else if (
-      /^[A-Za-z0-9]*$/.test(data) ||
-      /^[A-Za-z`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data) ||
+      /^[A-Za-zа-яА-ЯёЁ0-9]*$/.test(data) ||
+      /^[A-Za-zа-яА-ЯёЁ`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data) ||
       /^[0-9`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data)
     ) {
       this.minimumValid = true;
@@ -46,7 +46,9 @@ export class ValidationService {
       this.strong = false;
     }
     //contains letters, digits and special characters
-    else if (/^[A-Za-z0-9`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data)) {
+    else if (
+      /^[A-Za-zа-яА-ЯёЁ0-9`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]*$/.test(data)
+    ) {
       this.minimumValid = true;
       this.strong = true;
       this.weak = true;
